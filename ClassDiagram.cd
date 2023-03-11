@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KodaKoziol2263Ex9B.CoffeeSprite">
+    <Position X="16.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CoffeeSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.EnemyFormationManager">
+    <Position X="10.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIyIAAAQKAAAhAAAMAABAEgAAQCAAAICAAgQA=</HashCode>
+      <FileName>EnemyFormationManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="projectilesManager" />
+      <Property Name="formation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.EnemyShipSprite">
+    <Position X="17.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAgAAQAAAAAA=</HashCode>
+      <FileName>EnemyShipSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.Form1">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAQhAAAACAAAACAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.GameLoop">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAQAACAAAAAAAgAAAQAIACAAEAAAAAAgAAAEMAA=</HashCode>
+      <FileName>GameLoop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.GameSession">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAgAUBACABAAACAACAAAAAAAAEAAAkgAAEABACEAA=</HashCode>
+      <FileName>GameSession.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="playerShip" />
+      <Field Name="enemyFormation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.GameSessionEndedEventArgs">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>GameSessionEndedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.HeartSprite">
+    <Position X="14.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HeartSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.PickUpManager">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAIAAAAAA=</HashCode>
+      <FileName>PickUpManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="heart" />
+      <Field Name="star" />
+      <Field Name="coffee" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.PlayerShipManager">
+    <Position X="9" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQgQCAIgIAAQAAAQACAAAAESBAEIAAAwAAAQAAAAAA=</HashCode>
+      <FileName>PlayerShipManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="playerShipSprite" />
+      <Property Name="projectileManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.PlayerShipSprite">
+    <Position X="15.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerShipSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.ProjectilesManager">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIgAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAEAA=</HashCode>
+      <FileName>ProjectilesManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="pool" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.ProjectileSprite">
+    <Position X="14.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAgAgAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectileSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.ShipSprite">
+    <Position X="16.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAICAAAAAAAAAAAA=</HashCode>
+      <FileName>ShipSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.Sprite">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAACAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KodaKoziol2263Ex9B.StarSprite">
+    <Position X="18.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StarSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
