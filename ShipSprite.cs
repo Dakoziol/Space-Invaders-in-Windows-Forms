@@ -34,7 +34,7 @@ namespace KodaKoziol2263Ex9B
              */
 
             if (Enabled)
-                graphics.DrawRectangle(new Pen(color, 5 * GameSession.SpacialScalar), transform.RectangleScaledForGraphics(graphics));
+                graphics.DrawRectangle(new Pen(color, 2.5f * GameSession.ResolutionFactor), transform.RectangleScaledForGraphics(graphics));
         }
     }
 }

@@ -40,6 +40,11 @@ namespace KodaKoziol2263Ex9B
              * This Form load event method initializes the Graphics graphics and Begins the gameSession.
              */
 
+            //Fullscreen
+            WindowState = FormWindowState.Normal;
+            FormBorderStyle = FormBorderStyle.None;
+            Bounds = Screen.PrimaryScreen.Bounds;
+
             KeyPreview = true;
 
             PBgameArea.Width = (int)(Size.Height * ASPECT_RATIO);
@@ -47,7 +52,7 @@ namespace KodaKoziol2263Ex9B
             PBgameArea.Location = new Point(Width / 2 - PBgameArea.Width / 2, 0);
 
 
-            gameSession = new GameSession(DeviceDpi, PBgameArea, level, remainingLives);
+            gameSession = new GameSession(PBgameArea, level, remainingLives);
             gameSession.Winner += gameSession_Victory;
             gameSession.GameOver += gameSession_GameOver;
         }
@@ -81,7 +86,7 @@ namespace KodaKoziol2263Ex9B
                 else if (gameSession.SessionEnded)
                 {
                     //Restart or Continue gameSession
-                    gameSession = new GameSession(DeviceDpi, PBgameArea, level, remainingLives);
+                    gameSession = new GameSession(PBgameArea, level, remainingLives);
                     gameSession.Winner += gameSession_Victory;
                     gameSession.GameOver += gameSession_GameOver;
                     gameSession.Begin();

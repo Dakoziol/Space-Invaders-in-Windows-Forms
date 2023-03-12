@@ -25,7 +25,7 @@ namespace KodaKoziol2263Ex9B
                 pool[i] = new ProjectileSprite(projectileColor);
 
             this.range = range;
-            this.projectileVelocityY = projectileVelocityY * GameSession.ResolutionFactor;
+            this.projectileVelocityY = projectileVelocityY;
         }
 
         internal void InstatiateProjectile(Vector2 spawnPosition)

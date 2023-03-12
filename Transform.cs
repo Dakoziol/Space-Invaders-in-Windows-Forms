@@ -17,10 +17,10 @@ namespace KodaKoziol2263Ex9B
         internal float Top => position.Y;
         internal float Bottom => position.Y + scale.Y;
         internal Rectangle RectangleScaledForGraphics(Graphics graphics) => new Rectangle(
-            (int)(position.X),// * GameSession.ResolutionFactor),
-            (int)(position.Y),// * GameSession.ResolutionFactor),
-            (int)(scale.X * GameSession.SpacialScalar * 2f),
-            (int)(scale.Y * GameSession.SpacialScalar * 2f)
+            (int)((position.X) * GameSession.ResolutionFactor),
+            (int)((position.Y) * GameSession.ResolutionFactor),
+            (int)(scale.X * GameSession.ResolutionFactor),
+            (int)(scale.Y * GameSession.ResolutionFactor)
             );
 
         internal bool IntersectsWith(Transform t)

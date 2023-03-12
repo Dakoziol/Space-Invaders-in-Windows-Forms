@@ -19,7 +19,7 @@ namespace KodaKoziol2263Ex9B
         const int PROJECTILE_POOL_SIZE = 10;
         static float
             PROJECTILE_VELOCITY_Y = -15,
-            PLAYER_SHIP_SPEED = 5 * GameSession.ResolutionFactor;
+            PLAYER_SHIP_SPEED = 5;
 
         internal bool enabled = true;
         internal PlayerShipSprite playerShipSprite { get; private set; }

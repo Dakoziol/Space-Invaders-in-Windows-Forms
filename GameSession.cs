@@ -16,13 +16,14 @@ namespace KodaKoziol2263Ex9B
          *              All of the game logic will be put in these methods to be executed by the GameLoop class
          */
 
-        internal Graphics graphics;
-        internal static float INVERSE_DPI_AT_4K = 1f / 216f;
-        internal static float SpacialScalar;
         internal static float ResolutionFactor;
+        internal static Point BASE_RES = new Point(720, 1080);  // This is the resolution all objects in the game will work in internally.
+                                                                // When drawn, objects transforms will have to be scaled to the actual resolution,
+                                                                // for example, with Transform.RectangleScaledForGraphics();
+        internal static Transform BASE_TRANSFORM = Transform.GetTransformFromRectangle(new Rectangle(0, 0, BASE_RES.X, BASE_RES.Y));
 
         internal bool goLeft, goRight, doFire, SessionEnded = false;
-        int difficulty, remainingLives;
+        int difficulty;
 
         PlayerShipManager playerShip;
         EnemyFormationManager enemyFormation;
@@ -31,17 +32,15 @@ namespace KodaKoziol2263Ex9B
         SolidBrush levelTextBrush;
         StringFormat levelTextFormat;
 
-        internal GameSession(int dpi, PictureBox pictureBox, int difficulty, int remainingLives) : base(pictureBox)
+        internal GameSession(PictureBox pictureBox, int difficulty, int remainingLives) : base(pictureBox)
         {
             /**
              * Koda Koziol: This constructor method takes a PictureBox and an integer, difficulty,
              *              setting difficulty and calling the base class GameLoop with pictureBox.
              */
-            SpacialScalar = INVERSE_DPI_AT_4K * dpi;
-            ResolutionFactor = pictureBox.Height / 1080f;
+            ResolutionFactor = pictureBox.Height / BASE_RES.Y;
 
             this.difficulty = difficulty;
-            this.remainingLives = remainingLives;
             SessionEnded = false;
 
             levelTextFont = new Font("Impact", 250, GraphicsUnit.Point);
@@ -51,11 +50,11 @@ namespace KodaKoziol2263Ex9B
             levelTextFormat.LineAlignment = StringAlignment.Center;
 
             Vector2 playerShipInitialPosition = new Vector2(
-                (pictureBox.Width - PlayerShipSprite.Size.Width) * 0.5f,
-                pictureBox.Height * 0.85f
+                (BASE_RES.X - PlayerShipSprite.Size.Width) * 0.5f,
+                BASE_RES.Y * 0.85f
                 );
 
-            playerShip = new PlayerShipManager(playerShipInitialPosition, Transform.GetTransformFromRectangle(pictureBox.DisplayRectangle), remainingLives);
+            playerShip = new PlayerShipManager(playerShipInitialPosition, BASE_TRANSFORM, remainingLives);
         }
 
         protected override void Start()
@@ -67,19 +66,23 @@ namespace KodaKoziol2263Ex9B
             Transform enemyFormationTransform = new Transform();
 
             enemyFormationTransform.scale = new Vector2(
-                pictureBox.Width * 0.7f,
-                Math.Clamp(pictureBox.Height * 0.3f * difficulty, 1, pictureBox.Height * 2)
+                BASE_RES.X * 0.7f,
+                Math.Clamp(BASE_RES.Y * 0.3f * difficulty, 1, BASE_RES.Y * 2)
                 );
 
             enemyFormationTransform.position = new Vector2(
-                (pictureBox.Width - enemyFormationTransform.scale.X) * 0.5f + EnemyShipSprite.Size.Width,
-                pictureBox.Top - enemyFormationTransform.scale.Y
+                (BASE_RES.X - enemyFormationTransform.scale.X) * 0.5f + EnemyShipSprite.Size.Width,
+                -enemyFormationTransform.scale.Y
                 );
 
             int enemyFormationColumns = Math.Clamp( (int)(difficulty * 1.5), 1, 8 );
             int enemyFormationRows = difficulty * 2;
-            enemyFormation = new EnemyFormationManager(enemyFormationTransform, enemyFormationColumns, enemyFormationRows, Transform.GetTransformFromRectangle(pictureBox.DisplayRectangle));
-            
+            enemyFormation = new EnemyFormationManager(
+                enemyFormationTransform,
+                enemyFormationColumns, 
+                enemyFormationRows,
+                BASE_TRANSFORM
+                );
         }
 
 
@@ -101,7 +104,7 @@ namespace KodaKoziol2263Ex9B
             //Check properties for win/lose status
             if (enemyFormation.numberOfRemainingEnemies <= 0)
                 OnWinner(new GameSessionEndedEventArgs(playerShip.remainingLives, enemyFormation.GetNumberDestroyed));
-            if (enemyFormation.downmostEnemyPositionY > (pictureBox.Height * 0.85f + EnemyShipSprite.Size.Height) || playerShip.remainingLives <= 0)
+            if (enemyFormation.downmostEnemyPositionY > (BASE_RES.Y * 0.85f + EnemyShipSprite.Size.Height) || playerShip.remainingLives <= 0)
                 OnGameOver(new GameSessionEndedEventArgs(playerShip.remainingLives, enemyFormation.GetNumberDestroyed));
         }
 
@@ -114,7 +117,7 @@ namespace KodaKoziol2263Ex9B
              *              executes the Draw() methods of objects in this GameSession that need to be drawn or redrawn.
              */
 
-            graphics.DrawString(difficulty.ToString(), levelTextFont, levelTextBrush, pictureBox.DisplayRectangle, levelTextFormat);
+            graphics.DrawString(difficulty.ToString(), levelTextFont, levelTextBrush, BASE_TRANSFORM.RectangleScaledForGraphics(graphics), levelTextFormat);
             playerShip.DrawSprites(graphics);
             enemyFormation.DrawSprites(graphics);
         }

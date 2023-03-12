@@ -26,8 +26,8 @@ namespace KodaKoziol2263Ex9B
 
         int columns, rows;
         static float
-            SPEED_X = 1 * GameSession.ResolutionFactor,
-            SPEED_Y = 1 * GameSession.ResolutionFactor;
+            SPEED_X = 1,
+            SPEED_Y = 1;
         bool isMovingRight = true;
 
 
